@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<title>Green Eggs Lotto Plus!</title>
+</head>
+
+<body>
+	<h1>Green Eggs Lotto Plus!</h1>
+	<h2>Pick 5 numbers from 1 to 47 - no more, no less</h2>
+	<div id='numbers'>
+	<table> 
+		<tr>
+		<script>
+		for (var i=1;i<48;i++) {
+			if ((i!=1) && (i%6 == 1)) {
+				document.write("</tr><tr>");
+			}
+			document.write("<td><input type='checkbox' class='num' name='num'>");
+			document.write("<label for='n"+i+"'>&nbsp;" + i + "</label></td>");
+		}
+		</script>
+		</tr>
+	</table>
+	<input type='button' id='refresh-nums' value='Clear Choices'>
+	</div>
+	<h2>Pick 1 mega number from 1 to 27</h2>
+	<table> 
+		<tr>
+	<script>
+		for (var i=1;i<28;i++) {
+			if ((i!=1) && (i%6 == 1)) {
+				document.write("</tr><tr>");
+			}
+			document.write("<td><input type='radio' class='meganum' name='meganum'>");
+			document.write("<label for='m'" + i + ">&nbsp;" + i + "</label></td>");
+		}
+	</script>
+		</tr>
+	</table>
+	
+	<input type='button' id='purchase-tkt' value='Purchase Ticket!'>
+	<br><br><br>
+	
+	<div id='ball-nums'>
+	</div>
+	<br><br><br><br><br><br>
+	<!-- random number generator should go here -->
+	
+	<input type='button' id='pick-nums' value='Wednesday 8PM Spin!!'>
+	
+	<br><br><br><br><br><br>
+	
+<div id="container">
+	<div id="ball"></div>
+	<div id="shadow"></div>
+</div>
+	
+	
+	
+	
+	
+	
+	
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+/* ---------------------------------------
+print out numbers for superlotto
+------------------------------------------ 
+function printSuperLotto() {
+	for (var i=1;i<48;i++) {
+		if ((i!=1) && (i%6 == 1)) {
+			document.write("</tr><tr>");
+		}
+		document.write("<td><input type='checkbox' class='num' name='num'>");
+		document.write("<label for='n'" + i + ">&nbsp;" + i + "</label></td>");
+	}
+}
+*/
+/* ---------------------------------------
+print out numbers for mega number
+------------------------------------------ */	
+	
+	
+/* ---------------------------------------
+superLotto limit to 5 numbers
+------------------------------------------ */
+$("input[type=checkbox][name=num]").click(function() {
+	var limit = $("input[type=checkbox][name=num]:checked").length >= 5;
+	$("input[type=checkbox][name=num]").not(":checked").attr("disabled",limit);
+});
+
+/* ---------------------------------------
+clear number choices
+------------------------------------------ */
+$('#refresh-nums').click(function() {
+	// clear the checks
+	$('#numbers').find(':checked').each(function() {
+		$(this).removeAttr('checked');
+	});
+	
+	// enable all of the boxes
+	$("input[type=checkbox][name=num]").removeAttr("disabled");
+});
+
+/* ---------------------------------------
+lotto time!
+------------------------------------------ */
+$('#purchase-tkt').click(function() {
+	    var nMin = 1;
+		var nMax = 47;
+		var balls = new Array();
+		var bCheck = true;
+		
+		while (bCheck) {
+			for (var i=0; i<6; i++) {
+				balls[i] = Math.floor(Math.random() * (nMax - nMin + 1)) + nMin;
+				console.log(balls[i]);
+			}
+
+			// confirm no duplicates for 1 - 5
+			if ((balls[1] != balls[2]) && (balls[1] != balls[3]) &&
+				(balls[1] != balls[4]) && (balls[1] != balls[5]) &&
+				(balls[2] != balls[3]) && (balls[2] != balls[4]) &&
+				(balls[2] != balls[5]) && (balls[3] != balls[4]) &&
+				(balls[3] != balls[5]) && (balls[4] != balls[5])) {
+				bCheck = false;
+			}
+		}
+		
+		$('#ball-nums').text("balls: " + balls[0] + " " + balls[1] + " " + balls[2] + " " + balls[3] + " " + balls[4] + " " + balls[5]);
+});
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
