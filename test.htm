@@ -15,7 +15,7 @@
 			if ((i!=1) && (i%6 == 1)) {
 				document.write("</tr><tr>");
 			}
-			document.write("<td><input type='checkbox' class='num' name='num'>");
+			document.write("<td><input type='checkbox' class='num' name='num' value='"+i+"'>");
 			document.write("<label for='n"+i+"'>&nbsp;" + i + "</label></td>");
 		}
 		</script>
@@ -46,9 +46,13 @@
 	<br><br><br><br><br><br>
 	<!-- random number generator should go here -->
 	
+	<script>
+	</script>
+	<br><br><br><br><br><br>
+	
 	<input type='button' id='pick-nums' value='Wednesday 8PM Spin!!'>
 	
-	<br><br><br><br><br><br>
+	
 	
 <div id="container">
 	<div id="ball"></div>
@@ -111,6 +115,8 @@ $('#purchase-tkt').click(function() {
 		var balls = new Array();
 		var bCheck = true;
 		
+		// !@# confirm that all of the number choices are made 
+		
 		while (bCheck) {
 			for (var i=0; i<6; i++) {
 				balls[i] = Math.floor(Math.random() * (nMax - nMin + 1)) + nMin;
@@ -131,8 +137,52 @@ $('#purchase-tkt').click(function() {
 });
 
 
+$('#pick-nums').click(function() {
+	$('input[name="num"]:checked').each(function() {
+		console.log(this.value);
+	});
+});
+/*
+	$('input[type="checkbox"].num').each(function () {
+       var sThisVal = (this.checked ? $(this).val() : "");
+	   console.log(sThisVal);
+  });
+});
+*/
+
+/* ---------------------------------------
+ball bounce
+------------------------------------------ 
+
+$(document).ready(function () {     
+    var bouncetime = 1000;
+    var ballheight = 280;
+    var ballsize = 80;
+ 
+    $('#ball').css({'width':ballsize, 'height':ballsize, 'margin-left':-(ballsize/2),'display':'block', 'bottom':ballheight});
+    $('#shadow').css({'width':ballsize*1.5, 'height':ballsize/3, 'margin-left':-(ballsize*0.75),'display':'block', 'opacity':0.2});
+ 
+    ballbounce();
+    ballshadow();
+ 
+    function ballbounce() {
+        $('#ball').animate({'bottom':20}, bouncetime, 'easeInQuad', function() {
+            $('#ball').animate({'bottom':ballheight}, bouncetime, 'easeOutQuad', function() {
+                ballbounce();
+            });
+        });
+    }
+    function ballshadow() {
+        $('#shadow').animate({'width':ballsize, 'height':ballsize/4, 'margin-left':-(ballsize/2), 'opacity':1}, bouncetime, 'easeInQuad', function() {
+            $('#shadow').animate({'width':ballsize*1.5, 'height':ballsize/3, 'margin-left':-(ballsize*0.75), 'opacity':0.2}, bouncetime, 'easeOutQuad', function() {
+                ballshadow();
+            });
+        });
+    }
+});
 
 
+*/
 
 
 
