@@ -1,0 +1,99 @@
+body
+{
+	font-family: 		Tahoma,Arial;
+	font-size:			medium;
+	margin:				5% 20%;
+	background-color:	#EFF2FB;
+}
+
+#container
+{
+	background-color:	#fff;
+	padding:			20px 20px;
+	border:				1px solid #ccc;
+	width:				600px;
+}
+
+#name
+{
+	font-family:		Verdana;
+	color:				#08088A;
+	border-bottom:		5px solid #CEE3F6;
+}
+
+#about h2
+{
+	color:			#81BEF7;
+}
+
+#numbers
+{
+	float:			left;
+}
+
+#megaNumbers
+{
+	float:			left;
+	padding-left:	20px;
+}
+
+#content2
+{
+	clear:			both;
+	padding-top:	20px;
+}
+#content3
+{
+	clear:			both;
+}
+
+#balls-bg
+{
+	background-image:	url('balls.jpg');
+	background-repeat:	no-repeat;
+	height:				82px;
+	width:				400px;
+	font-size:			30px;
+	float:				left;
+}
+
+#balls-list
+{
+	margin:				0px;
+	padding:			0px;
+	border:				0px;
+}
+#balls-list	li
+{
+	position:			relative;	
+	display:			inline-block;
+	list-style-type:	none;
+	border:				0px;
+	margin:				0px;
+	padding:			0px;
+	top:				18px;
+	text-align:			center;
+	width:				80px;
+}
+
+#balls-mega-bg
+{
+	float:				left;
+	background-image:	url('ball.jpg');
+	background-repeat:	no-repeat;
+	height:				80px;
+	width:				80px;
+	margin-left:		30px;
+	font-size:			30px;
+	color:				blue;
+	line-height:		70px;
+	text-align:			center;
+}
+
+
+
+
+
+
+
+
