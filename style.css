@@ -45,6 +45,11 @@ body
 #content3
 {
 	clear:			both;
+	padding-top:	10px;
+}
+#content4
+{
+	clear:			both;
 }
 
 #balls-bg
@@ -90,7 +95,15 @@ body
 	text-align:			center;
 }
 
+.err
+{
+	color:				red;
+}
 
+.winner
+{
+	color:				purple;
+}
 
 
 
