@@ -154,6 +154,8 @@ $(document).ready(function(){
 		for (var i=0;i<5;i++) {
 			arUserNum[i] = 0;
 		}
+		// Clear out the user's mega number
+		nUserMegaNum = 0;
 	}
 	
 	
