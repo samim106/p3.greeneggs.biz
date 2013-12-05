@@ -11,6 +11,11 @@ table td, tr
 	border:				1px solid #ccc;
 }
 
+h2
+{
+	color:				#81BEF7;
+}
+
 #container
 {
 	background-color:	#fff;
