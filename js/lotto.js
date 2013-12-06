@@ -52,10 +52,11 @@ $(document).ready(function(){
 	{
 		var nMin = 1;
 		var nMax = 47;
+		var nMegaMax = 27;
 		var bCheck = true;
 
 		while (bCheck) {
-			nMegaNum = Math.floor(Math.random() * (nMax - nMin + 1)) + nMin;
+			nMegaNum = Math.floor(Math.random() * (nMegaMax - nMin + 1)) + nMin;
 			for (var i=0; i<5; i++) {
 				arNum[i] = Math.floor(Math.random() * (nMax - nMin + 1)) + nMin;
 			}
