@@ -151,8 +151,8 @@ $(document).ready(function(){
 		// Clear out the user's mega number
 		nUserMegaNum = 0;
 	}
-	
-	
+
+
 	// ---------------------------------------
 	// Purchase user ticket
 	// ---------------------------------------
@@ -201,11 +201,14 @@ $(document).ready(function(){
 		// Reset the numbers
 		nMegaNum = 0;
 		
-		// Clear out the previous user choices
-		clearChoices();
+		
+		// Clear out the previous user choices if not checked
+		if (!$('#keep-nums').is(':checked')) {
+			clearChoices();
+		}
 	});
 
-		
+
 	// ---------------------------------------
 	// Check for matching numbers
 	// ---------------------------------------
@@ -229,14 +232,13 @@ $(document).ready(function(){
 			}
 		}
 
-		// CELEBRATE!
+		// CELEBRATE! you matched all numbers!
 		if ((bMega) && (nMatching == 5)) {
 			$('#matching').html("<p class='winner'>YAY! YOU HIT THE JACKPOT!!</p>");
 		}
 		else {
 			$('#matching').html("<p>Green Eggs Lotto: " + nMatching + " matching!!<br>"+ msg + "</p>");
 		}
-		
 	}					
 
 	
