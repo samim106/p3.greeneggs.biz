@@ -72,8 +72,6 @@ $(document).ready(function(){
 		
 		// sort the numbers
 		arNum.sort(function(a,b){ return a-b;});
-		
-		//console.log("SPIN: " + arNum[0] + " " + arNum[1] + " " + arNum[2] + " " + arNum[3] + " " + arNum[4] + " + " + nMegaNum);
 	}
 
 	// ---------------------------------------
@@ -102,7 +100,6 @@ $(document).ready(function(){
 		$('#numbers :checked').each(function() {
 			arUserNum.push($(this).val());
 		});
-		//console.log("super click: " + arUserNum);
 	});
 
 	// ---------------------------------------
@@ -111,9 +108,7 @@ $(document).ready(function(){
 	function validateChoices() {
 		// check superLotto numbers
 		for (var i=0;i<5;i++) {
-			//console.log("validateChoices(): " + i + " - " + arUserNum[i]);
 			if ((arUserNum[i] == 0) || (typeof(arUserNum[i]) == 'undefined')) {
-				//console.log('validateChoices(): false lotto');
 				return false;
 			}
 		}
@@ -124,7 +119,6 @@ $(document).ready(function(){
 			return false;
 		}
 		
-		//console.log('validateChoices(): true');
 		return true;
 	}
 
@@ -201,12 +195,6 @@ $(document).ready(function(){
 		// display the mega number
 		$('#balls-mega-bg').html(nMegaNum);
 		
-		//console.log("SPIN: " + arNum[0] + " " + arNum[1] + " " + arNum[2] + " " + arNum[3] + " " + arNum[4] + " + " + nMegaNum);
-		
-		// add the choices to history
-		//historyAdd();
-		//historyDisplay();
-		
 		// do any numbers match?
 		checkNumbers();
 		
@@ -271,36 +259,4 @@ $(document).ready(function(){
 		// display the mega number
 		$('#balls-mega-bg').html(nMegaNum);
 	});
-
-	// ---------------------------------------
-	// History - add
-	// ---------------------------------------
-	function historyAdd() {
-		var len = arHistory.length;
-		arHistory[len] = new Array();
-		for (var i=0; i<5; i++) {
-			arHistory[len][i] = arNum[i];
-		}
-		arHistory[len][5] = nMegaNum;
-	}
-
-	// ---------------------------------------
-	// History - display
-	// ---------------------------------------
-	function historyDisplay() {
-		var msg = "";
-		for (var i=0; i<arHistory.length; i++) {
-			msg = arHistory[i][0] + ", " + 
-				arHistory[i][1] + ", " + 
-				arHistory[i][2] + ", " + 
-				arHistory[i][3] + ", " + 
-				arHistory[i][4] + " + " + 
-				arHistory[i][5] + "<br>";
-		}
-		
-		// clear the field
-		$('#history').empty;
-		// add in the history
-		$('#history').append(msg);
-	}
 });
